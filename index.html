@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensagens de Coragem e Carinho</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Montserrat:wght@400;500&display=swap');
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f7e6f0;
+            color: #5d4a6c;
+            /* Flexbox para centralizar o conteúdo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            position: relative; /* Importante para que o carrossel de fundo se posicione corretamente */
+            overflow: hidden;
+        }
+
+        /* --- Estilos do Carrossel de Fundo --- */
+        .carousel-container {
+            position: fixed; /* Fixa o carrossel na viewport */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Coloca o carrossel atrás do conteúdo principal */
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 1s ease-in-out; /* Transição mais suave e um pouco mais lenta */
+            height: 100%;
+        }
+
+        .carousel-images img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover; /* Faz a imagem cobrir toda a área, sem distorcer */
+            display: block;
+        }
+
+        /* Os botões de navegação não serão mais visíveis pois o carrossel é automático */
+        .carousel-btn {
+            display: none;
+        }
+        /* --- Fim Estilos do Carrossel --- */
+
+        /* Container do conteúdo principal, à frente do carrossel */
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+            width: 90%;
+            background-color: rgba(255, 255, 255, 0.7); /* Adiciona um fundo semi-transparente para o texto ser legível */
+            backdrop-filter: blur(5px); /* Efeito de desfoque no fundo, opcional mas legal */
+            -webkit-backdrop-filter: blur(5px); /* Para navegadores WebKit */
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Restante dos seus estilos */
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            color: #a3617b;
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .intro p {
+            font-size: 1.1em;
+            line-height: 1.5;
+            color: #7b628b;
+        }
+
+        .topics {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .topic-btn {
+            background-color: #a3617b;
+            color: #fff;
+            border: none;
+            padding: 15px 25px;
+            font-size: 1.2em;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-btn:hover {
+            background-color: #8c5269;
+            transform: translateY(-2px);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(247, 230, 240, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeIn 0.5s;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: #aaa;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close-btn:hover,
+        .close-btn:focus {
+            color: #a3617b;
+        }
+
+        .modal h2 {
+            font-family: 'Dancing Script', cursive;
+            color: #a3617b;
+            font-size: 2.5em;
+            margin-top: 0;
+        }
+
+        .verse {
+            font-style: italic;
+            color: #8b749d;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+
+        .message {
+            margin-top: 15px;
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            .topic-btn {
+                font-size: 1.1em;
+                padding: 12px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="carousel-container">
+        <div class="carousel-images">
+            <img src="IMG_20250920_105649.jpg" alt="Imagem 1">
+            <img src="https://via.placeholder.com/1920x1080/98FB98" alt="Imagem 2">
+            <img src="https://via.placeholder.com/1920x1080/ADD8E6" alt="Imagem 3">
+            <img src="https://via.placeholder.com/1920x1080/DDA0DD" alt="Imagem 4">
+        </div>
+        </div>
+    
+    <main class="container">
+        <div class="intro">
+            <h1>Para Quando Precisar</h1>
+            <p>Feito Com Carinho para Momentos que queira Ficar Sozinha</p>
+            <p>de Josué para Leticia</p>
+        </div>
+        
+        <div class="topics">
+            <button class="topic-btn" data-topic="triste">Se você estiver triste</button>
+            <button class="topic-btn" data-topic="magoado">Se você estiver magoada</button>
+            <button class="topic-btn" data-topic="ansioso">Se você estiver ansiosa</button>
+            <button class="topic-btn" data-topic="preocupado">Se você estiver preocupada</button>
+        </div>
+    </main>
+
+    <div id="message-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2 id="modal-title"></h2>
+            <p class="verse" id="modal-verse"></p>
+            <p class="message" id="modal-message"></p>
+        </div>
+    </div>
+
+    <script>
+        const messages = {
+            triste: {
+                title: "Para a minha menina que está triste...",
+                verse: "O Senhor está perto dos que têm o coração quebrantado e salva os de espírito oprimido. (Salmos 34:18)",
+                message: `"Oi, gatinha, tudo bem? Eu não sei o que você está passando neste momento, mas quero que saiba que meu amor, abraço e colo são todos seus. Às vezes, as tristezas da vida nos fazem nos distanciar da realidade e das pessoas. Nesses momentos, saiba que há pessoas que te amam e que te querem bem, inclusive eu. Te amo, te adoro e oro sempre por você.`
+            },
+            magoado: {
+                title: "Se Estiver Magoada.. Te Amo",
+                verse: "Suportem-se uns aos outros e perdoem as queixas que tiverem uns contra os outros. Assim como o Senhor lhes perdoou, também perdoem vocês. (Colossenses 3:13)",
+                message: `Olá, Gatuxa. Eu sei que a mágoa pode deixar o coração pesado e doer de um jeito que a gente nem consegue explicar. Queria poder estar aí para te dar um abraço bem forte, mas espero que estas palavras cheguem até você e te deem um pouco de alívio. Lembre-se que você não merece carregar esse peso. Eu estou aqui para te lembrar que o perdão é um presente que a gente dá para a gente mesma. Te amo, te adoro e minhas orações estão sempre com você, pedindo que a paz e a alegria voltem a encher seu coração.
+                Te Amo.
+                `
+            },
+            ansioso: {
+                title: "Se estiver Ansiosa, Te Adoro",
+                verse: "Não andem ansiosos por coisa alguma, mas em tudo, pela oração e súplicas, e com ação de graças, apresentem seus pedidos a Deus. E a paz de Deus, que excede todo o entendimento, guardará os seus corações e as suas mentes em Cristo Jesus. (Filipenses 4:6-7)",
+                message: `Oi, meu bem. Sei que a ansiedade pode fazer a gente sentir que o coração está correndo uma maratona, mesmo quando a gente está parado. Respire fundo, bem devagar, e sinta o meu abraço de longe. Não se perca na pressa de ter todas as respostas. Lembre-se que cada dia tem a sua própria preocupação e que você é forte o suficiente para enfrentar cada uma delas, um passo de cada vez. Te amo, te adoro e oro sempre para que a paz de Deus preencha a sua mente e acalme o seu coração.`
+            },
+            preocupado: {
+                title: "Se Estiver Preucupada.. Vc é Maravilhosa",
+                verse: "Lancem sobre ele toda a sua ansiedade, porque ele tem cuidado de vocês. (1 Pedro 5:7)",
+                message: `Oi Minha Princesa, Eu sei que a preocupação pode ser um peso que a gente carrega sem perceber, nos fazendo pensar em mil coisas ao mesmo tempo. Mas eu quero te lembrar que você não está sozinha e que não precisa carregar esse peso. Existe um Deus que cuida de cada detalhe da sua vida e que sabe exatamente o que você precisa. Entregue a Ele essa preocupação e confie que tudo vai se resolver no tempo certo. Te amo, te adoro e oro para que a sua mente descanse e o seu coração encontre a paz. Te Amo.`
+            }
+        };
+
+        const topicButtons = document.querySelectorAll('.topic-btn');
+        const modal = document.getElementById('message-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalVerse = document.getElementById('modal-verse');
+        const modalMessage = document.getElementById('modal-message');
+        const closeModalBtn = document.querySelector('.close-btn');
+
+        // Lógica do Carrossel Automático
+        const carousel = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        const imageCount = images.length;
+        let currentImage = 0;
+
+        function updateCarousel() {
+            const offset = -currentImage * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+        }
+
+        // Passa para a próxima imagem a cada 2 segundos
+        setInterval(() => {
+            currentImage = (currentImage + 1) % imageCount;
+            updateCarousel();
+        }, 2000); // 2000 milissegundos = 2 segundos
+
+        // Lógica do Modal de Mensagem (já existente)
+        topicButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const topic = button.dataset.topic;
+                const data = messages[topic];
+
+                if (data) {
+                    modalTitle.textContent = data.title;
+                    modalVerse.textContent = data.verse;
+                    modalMessage.textContent = data.message;
+                    modal.style.display = 'flex';
+                }
+            });
+        });
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (event) => {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
